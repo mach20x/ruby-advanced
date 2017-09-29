@@ -52,42 +52,57 @@
 #
 #
 #
-# sandy = Person.new("brown", "can sing", "sandy")
+sandy = Person.new("sandy", "brown")
 # p walter.sing
 # # p sandy.hair_color
-# # p sandy.sing
+
+p sandy.sing
 # # p sandy.name
 # p sandy.code
 
 
-class Table
-  @@next_table_id = 1
-  attr_reader :id
-    def self.has_legs?
-        true
-    end
-    def self.next_table_id
-    @@next_table_id
-    def initialize
-  	 @id = @@next_table_id
-  	 @@next_table_id += 1
-     def change_next_id(next_id)
-    @@next_table_id = next_id
-     end
-     def preview_next_id
-    @@next_table_id
-     end
-    end
+# class Table
+#   @@next_table_id = 1
+#   attr_reader :id
+#     def self.has_legs?
+#         true
+#     end
+#     def self.next_table_id
+#     @@next_table_id
+#     def initialize
+#   	 @id = @@next_table_id
+#   	 @@next_table_id += 1
+#      def change_next_id(next_id)
+#     @@next_table_id = next_id
+#      end
+#      def preview_next_id
+#     @@next_table_id
+#      end
+#     end
+#   end
+# end
+#
+# puts Table.has_legs?
+# p Table.next_table_id
+# t = Table.new
+# p t.id
+#
+# t2 = Table.new
+# p t2.id
+# t2.change_next_id 100
+#
+# puts "The next id back at the factory is #{t2.preview_next_id}"
+
+class Person
+  attr_accessor :name, :hair_color
+
+  def initialize(name, hair_color)
+    @name = name
+    @hair_color = hair_color
+  end
+
+  def sing
+     @sing = sing
+    puts "she got legs, and knows how to use them"
   end
 end
-
-puts Table.has_legs?
-p Table.next_table_id
-t = Table.new
-p t.id
-
-t2 = Table.new
-p t2.id
-t2.change_next_id 100
-
-puts "The next id back at the factory is #{t2.preview_next_id}"

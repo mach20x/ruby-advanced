@@ -154,29 +154,50 @@
 #   puts e.backtrace
 # end
 
-def a
-  b
-end
-
-def b
-  c rescue nil
-end
-
-
-def c
-  d
-end
-
-def d
-  raise "Boom!"
-end
-
-begin
-  a
-rescue => e
-  puts e.backtrace
-end
+# def a
+#   b
+# end
+#
+# def b
+#   c rescue nil
+# end
+#
+#
+# def c
+#   d
+# end
+#
+# def d
+#   raise "Boom!"
+# end
+#
+# begin
+#   a
+# rescue => e
+#   puts e.backtrace
+# end
 
 
 # end
 # puts "And we're back!"
+
+# begin
+#   1/0
+# rescue ZeroDivisionError
+#   puts "I can't divide by zero"
+# end
+class StandardError
+end
+
+class MyError < StandardError
+  raise "invalid argument"
+end
+
+def add_two(number)
+  unless number.respond_to? :+
+    raise ArgumentError, "Invalid argument"
+  end
+  number + 2
+end
+
+puts add_two("")
